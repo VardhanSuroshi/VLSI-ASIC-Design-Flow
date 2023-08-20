@@ -50,6 +50,6 @@ Build tool chain and pre-requisite  :
 
 ```
 sudo apt update
-chmod +x run_ubuntu.sh
-./run_ubuntu.sh
+chmod +x install_tools.sh
+./install_tools.sh
 ```
