@@ -198,8 +198,31 @@ here we can see that the code is executed in only 12 lines , which is due to the
 
 
 
+### Running the Assembly code on simulator in debug mode :
+```
+spike -d pk sum_obj.o
+```
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/f925a5e5-e264-4e64-9db5-e4098f66fa95" alt="Image" width="800">
+</p>
 
 
+
+
+
+## Integer number representation :
+### Unsigned Numbers
+Unsigned numbers, also known as non-negative numbers, are numerical values that represent magnitudes without indicating direction or sign.
+**Range :** [0, (2^n)-1 ]
+### Signed Numbers
+Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
+**Range :** Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
+
+#### TO summarise : 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ecea0456-d480-494f-912d-97f6708d39b5" alt="Image" width="800">
+</p>
 
 
 
