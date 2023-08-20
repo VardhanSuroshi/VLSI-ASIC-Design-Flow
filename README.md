@@ -64,6 +64,7 @@ Errors regarding tools installation are resolved in [Resolve Errors Guide](resol
 <details>
 <summary> DAY 1: ntroduction to RISC-V ISA and GNU Compiler Toolchai</summary>
 <br>
+	
 # Day 1: Introduction to RISC-V ISA and GNU Compiler Toolchain
 
 
