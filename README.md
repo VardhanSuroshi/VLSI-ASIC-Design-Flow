@@ -53,6 +53,6 @@ sudo apt update
 chmod +x install_tools.sh
 ./install_tools.sh
 ```
-Errors regarding tools installation are resolved in [Link to Resolve Errors Guide](resolve_errors.md)
+Errors regarding tools installation are resolved in [Resolve Errors Guide](resolve_errors.md)
 
 # Day 1: Introduction to RISC-V ISA and GNU Compiler Toolchain
