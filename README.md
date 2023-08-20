@@ -183,7 +183,8 @@ To navigate through `less` use :
 <p align="center">
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ae9a9dbb-cbd1-48b8-a90c-c93c26b7c954" alt="Image" width="800">
 </p>
-here we see that we have 15 line of code in  **main**  
+here we see that we have 15 line of code in main
+
 Now let us compile the code use `-Ofast` and see the line of exceution  
 ```
 riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum_obj.o sum_1_n.c
