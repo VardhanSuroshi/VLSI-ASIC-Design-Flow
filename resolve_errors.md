@@ -115,6 +115,7 @@ PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubun
 
 ```
 path from .bashrc file and compile the c code and create a object file . Once that is done replace back the 2 paths that we removed from .bashrc file and proceed further . This might not be the correct way to resolve this issue but this jugaad works !!
+Use this link to find more about how to resolve this [issue](https://askubuntu.com/questions/781972/how-can-i-update-gcc-5-3-to-6-1)
 
 **we hope this resolves all the issues pertaining to tool installation**
  
