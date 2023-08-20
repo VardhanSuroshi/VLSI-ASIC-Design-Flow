@@ -137,15 +137,63 @@ gcc sum_1_n.c -o sum_1_n.o
 ./sum_1_n.o
 ```
 output :
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/d27427ce-ddca-4b77-ae45-bcb0c6184561" alt="Image" width="800">
+</p>
+
+
+compile the same using riscv compiler and view the output
+
+
+```
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum_obj.o sum_1_n.c
+spike pk sum_obj.o
+```
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/d2dd6d12-de08-43a7-a591-e752a6d4c630" alt="Image" width="800">
+</p>
+
+Additional info :
+- `-O1`: This flag sets the optimization level to low. It balances code size and execution speed while maintaining reasonable compilation times.
+
+- `-mabi=lp64`: This flag defines the ABI (Application Binary Interface) with 64-bit pointers and long integers. It's a common choice for 64-bit RISC-V systems.
+
+- `-march=rv64i`: This flag specifies the target architecture as the base integer-only RISC-V architecture for 64-bit systems. It focuses on the fundamental integer instructions.
 
 
 
+TO see the RISC-V disassembled code : 
+```
+riscv64-unknown-elf-objdump -d sum_obj.o
 
+```
+To disassemble the object file and view its contents, use the following command:
+```
+riscv64-unknown-elf-objdump -d sum_obj.o | less 
+```
+To navigate through `less` use : 
++ Press /instance to search for a specific instance.
++ Press ENTER to begin the search.
++ To find the next occurrence, press n.
++ To search for the previous occurrence, press N.
++ To exit the less viewer, press esc, type :q, and then press ENTER.
 
+-O1 optimised main 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ae9a9dbb-cbd1-48b8-a90c-c93c26b7c954" alt="Image" width="800">
+</p>
+here we see that we have 15 line of code in  **main**  
+Now let us compile the code use `-Ofast` and see the line of exceution  
+```
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum_obj.o sum_1_n.c
+```
+-Ofast optimised main 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/48573ebe-53df-4967-a806-bf78dcbd859d" alt="Image" width="800">
+</p>
 
-
-
-
+here we can see that the code is executed in only 12 lines , which is due to the optimisation we applied 
 
 
 
