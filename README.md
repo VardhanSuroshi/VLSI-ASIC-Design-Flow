@@ -60,6 +60,10 @@ chmod +x install_tools.sh
 ```
 Errors regarding tools installation are resolved in [Resolve Errors Guide](resolve_errors.md)
 
+
+<details>
+<summary> DAY 1: ntroduction to RISC-V ISA and GNU Compiler Toolchai</summary>
+<br>
 # Day 1: Introduction to RISC-V ISA and GNU Compiler Toolchain
 
 
@@ -224,11 +228,45 @@ Signed numbers are numerical values that can represent both positive and negativ
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ecea0456-d480-494f-912d-97f6708d39b5" alt="Image" width="800">
 </p>
 
+## LAB for signed and unsigned integer type 
+
+let us run this C code to determine the range of integer type supported by RISC-V 
+```
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    // Declare variables to hold the values
+    unsigned long long int a;
+    long long int b_max, b_min;
+
+    // Calculate and assign the maximum value of a 64-bit unsigned number
+    a = (unsigned long long int)(pow(2, 64) - 1);
+
+    // Calculate and assign the maximum value of a 64-bit signed number
+    b_max = (long long int)(pow(2, 63) - 1);
+
+    // Calculate and assign the minimum value of a 64-bit signed number
+    b_min = (long long int)(pow(2, 63) * (-1));
+
+    // Print the calculated values
+    printf("The max value of 64 bit unsigned number is %llu\n The max number of 64 bit signed number is %lld\n The min value of 64 bit signed number is %lld\n",a,b_max,b_min);
+
+    return 0;
+}
+
+```
+
+Output of code snippet : 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/9267a3fc-1134-479e-9274-c9b032dd48bf" alt="Image" width="800">
+</p>
+
+we can play around with different values , datatype to find their respect max and min values 
 
 
-
-
-
+</details>
 
 
 
