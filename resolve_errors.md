@@ -103,7 +103,20 @@ export PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-lin
 source .bashrc 
 ```
 Refresh the terminal
-we hope this resolves all the issues pertaining to tool installation 
+
+## resolve as unrecoginized error --64 
+
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/b838a58c-d2a1-40e7-9e9b-38d57b2a17e6)
+
+This issue comes when too many gcc compiler are in your path , there are multiple ways to resolve this . The jugaad that I did was to remove  these 
+```
+PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH
+PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin:$PATH
+
+```
+path from .bashrc file and compile the c code and create a object file . Once that is done replace back the 2 paths that we removed from .bashrc file and proceed further . This might not be the correct way to resolve this issue but this jugaad works !!
+
+**we hope this resolves all the issues pertaining to tool installation**
  
 
   
