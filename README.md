@@ -11,10 +11,10 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 
 # Table of Contents
-## [Tools Installations](#Tools-Installation)
++ [Tools Installations](#tools-installation)
 ## Week 1:
-+ [**Day 1:** Introduction to RISC-V ISA and GNU Compiler Toolchain](#Day-1-Introduction-to-RISC-V-ISA-and-GNU-Compiler-Toolchain)
-+ [**Day 2:** Introduction to ABI and Basic Verification Flow](#Day-2-Introduction-to-ABI-and-Basic-Verification-Flow)
++ [**Day 1:** Introduction to RISC-V ISA and GNU Compiler Toolchain](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
++ [**Day 2:** Introduction to ABI and Basic Verification Flow](#day-2-introduction-to-abi-and-basic-verification-flow)
 
 ## Week 2:
 
@@ -25,7 +25,7 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 ## Week 5:
 
 
-# Tools Installations : 
+
 ## Requirements:
 + **OS**: Ubuntu 20 +
 + **Memory**: 200 GB
@@ -45,7 +45,7 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 + **GPU**: NVIDIA 01:00.0 NVIDIA Corporation TU117M
 + **Memory**: 750 GB
 
-
+## Tools Installations
 ## Tools Used:
 + **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.
 + **RISC-V ISA Simulator**: A RISC-V simulator used for functional verification and testing of RISC-V code without needing actual hardware.
