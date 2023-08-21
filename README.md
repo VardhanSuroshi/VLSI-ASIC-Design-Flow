@@ -484,6 +484,39 @@ Execution output :
 </p>
 
 ## Lab : Run C code on a RISC-V CPU
+Let us run our simple C code in a RISC-V CPU - PICORV-32 wirtten in verilog .
+Steps :
++ We convert our C program to a hex file and load in the memory of CPU
++ Make use of testbech to run the code
++ Display the results
+
+  The picorv design and the shell scripts are already built in a github repo
+  ```
+  cd
+  git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
+  
+  ```
+  Once installed navigate through the ``` riscv_workshop_collaterals/labs```
+  run the following command : 
+  ```
+  chmod 777 rv32im.sh
+  ./rv32im.sh
+  ```
+
+  <p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/85d17cab-0257-4424-9afe-8bb3053dae4a" alt="Image" width="800">
+  </p>
+  
+snap of testbench showing firmware.hex :
+<p align="center">
+<img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/952689f9-d156-4805-adc9-a050195cae15" alt="Image" width="800">
+  </p>
+
+to make the process easy we make use of shell script : ``` rv32im.sh```
+
+<p align="center">
+<img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/db8be006-e39c-4008-9f0e-733f77f0f3c7" alt="Image" width="800">
+</p>
 
 
 
