@@ -483,6 +483,8 @@ Execution output :
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/df7d18bf-593c-4032-b5ee-85c75321f943" alt="Image" width="1000">
 </p>
 
+## Lab : Run C code on a RISC-V CPU
+
 
 
 </details>
