@@ -88,8 +88,19 @@ sudo update-alternatives --config g++
 gcc --version; g++ --version
 
   ```
-  This should resolve the mentioned pproblem.
-  **MAKE SURE YOU REFRESH or OPEN NEW TERMINAL BEFORE CONTINUING THE SCRIPT**
+
+once you are done type following command to check of the path is getting reflected in your terminal:
+```
+echo $PATH 
+```
+it should show as follows :
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/d52322df-a1b5-4b3f-97c2-7a6304a03bc4" alt="Error Screenshot">
+</p>
+
+This should resolve the mentioned pproblem.
+  
+**MAKE SURE YOU REFRESH or OPEN NEW TERMINAL BEFORE CONTINUING THE SCRIPT**
 
 ### 3. fatal error: 
 ```stdio.h : No such file or directory```
