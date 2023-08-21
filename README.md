@@ -231,7 +231,7 @@ Unsigned numbers, also known as non-negative numbers, are numerical values that 
 Signed numbers are numerical values that can represent both positive and negative magnitudes, along with zero.
 **Range :** Positive : [0 , 2^(n-1)-1] Negative : [-1 to 2^(n-1)]
 
-#### TO summarise : 
+#### To summarise : 
 <p align="center">
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ecea0456-d480-494f-912d-97f6708d39b5" alt="Image" width="500">
 </p>
@@ -473,7 +473,7 @@ ret                    # Return from the function
 
 Execution output :
 <p align="center">
-  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/df7d18bf-593c-4032-b5ee-85c75321f943" alt="Image" width="800">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/df7d18bf-593c-4032-b5ee-85c75321f943" alt="Image" width="1000">
 </p>
 
 
