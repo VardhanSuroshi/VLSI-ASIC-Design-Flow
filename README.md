@@ -5,7 +5,7 @@
 
 Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs using open-source tools! Here, we embark on a journey that starts with processor specifications and leverages the power of the RISC-V ISA. We'll build processors from scratch, taking them through the entire RTL to GDS process  that meets various Performance, Power, Area ( PPA ) and manufacturability requirements. The best part? We're doing it all with open-source tools, including the RISC-V toolchain and OpenLane anad many more .
 <p align="center">
-  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/00ea3403-674e-4c70-a86e-a4d39aff4ff8" alt="Image" width="800">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/00ea3403-674e-4c70-a86e-a4d39aff4ff8" alt="Image" width="600">
 </p>
 
 
@@ -94,6 +94,9 @@ Errors regarding tools installation are resolved in [Resolve Errors Guide](resol
 - **Hardware**: Physical components of a computer system or electronic device enabling various tasks.
 
 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/e72cab48-7bad-409c-bb50-033d6b07816f" alt="Image" width="500">
+</p>
 
 
 
@@ -226,7 +229,7 @@ Signed numbers are numerical values that can represent both positive and negativ
 
 #### TO summarise : 
 <p align="center">
-  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ecea0456-d480-494f-912d-97f6708d39b5" alt="Image" width="800">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ecea0456-d480-494f-912d-97f6708d39b5" alt="Image" width="500">
 </p>
 
 ## LAB for signed and unsigned integer type 
