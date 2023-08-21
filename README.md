@@ -19,17 +19,18 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 # Table of Contents
 + [Tools Installations](#tools-installation)
-## Week 1:
-+ [Day 1:Introduction to RISC-V ISA and GNU Compiler Toolchain](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
-+ [Day 2:Introduction to ABI and Basic Verification Flow](#day-2-introduction-to-abi-and-basic-verification-flow)
++ Week 1:
+  - [Day 1: Introduction to RISC-V ISA and GNU Compiler Toolchain](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
+  - [Day 2: Introduction to ABI and Basic Verification Flow](#day-2-introduction-to-abi-and-basic-verification-flow)
+  - [Day 3: Digital Logic with TL-Verilog and Makerchip](#day-3-digital-logic-with-tl-verilog-and-makerchip)
 
-## Week 2:
++ Week 2:
 
-## Week 3:
++ Week 3:
 
-## Week 4:
++ Week 4:
 
-## Week 5:
++ Week 5:
 
 
 
