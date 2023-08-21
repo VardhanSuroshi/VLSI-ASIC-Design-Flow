@@ -1,18 +1,22 @@
-# This file is a contribution from Yagna Vivek 
+## This file is a contribution from Yagna Vivek 
 
-## Ususally occuring errors while instaling prerequisites
+## Ususally occuring errors while installing prerequisites 
 
-### 1. when configuring iverilog : check for following error "checking whether C compiler works..... no"
+### 1. when configuring iverilog : 
+```check for following error "checking whether C compiler works..... no"```
+
 <p align="center">
   <img src="https://github.com/yagnavivek/PES_ASIC_CLASS/assets/93475824/991acdaa-2d53-4858-aebe-9fa7b4b707b2" alt="Error Screenshot">
 </p>
 
 
 ####  Solution : 
-  This error usually occurs if you have a gcc version less than 12. You can check it using ``` gcc --version```
+  This error usually occurs if you have a gcc version less than 12. You can check it using 
+  ``` gcc --version```
   to resolve this You have to upgrade your gcc version. To do that, follow the below commands
 
-  first try closing terminal,open again , go to the directory where the error popped up and execute ```./configure```
+  first try closing terminal,open again , go to the directory where the error popped up and execute 
+  ```./configure```
   
   else
   
@@ -48,7 +52,7 @@ gcc --version; g++ --version
   ** if you see both the versions as 12.x.y then the upgrade is successfull ** 
   Now close the terminal and open again (or refresh) start with the command where the error occured.
 
-### 2. You followed the above steps but you are still getting the same error then : 
+### 2. Please follow this if the error is presistent ever after following above steps : 
   ```
  # Install the GNU Objective-C++ compiler.
 sudo apt install gobjc++
@@ -85,9 +89,10 @@ gcc --version; g++ --version
 
   ```
   This should resolve the mentioned pproblem.
-  ** MAKE SURE YOU REFRESH or CLOSE-OPEN TEHE TERMINAL BEFORE CONTINUING THE SCRIPT **
+  **MAKE SURE YOU REFRESH or OPEN NEW TERMINAL BEFORE CONTINUING THE SCRIPT**
 
-### 3. fatal error: stdio.h : No such file or directory
+### 3. fatal error: 
+```stdio.h : No such file or directory```
 <p align="center">
   <img src="https://github.com/yagnavivek/PES_ASIC_CLASS/assets/93475824/dcd4cc9e-00be-44a6-836d-7697d5267d0a" alt="Error Screenshot">
 </p>
@@ -103,12 +108,15 @@ export PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-lin
 source .bashrc 
 ```
 Refresh the terminal
+**MAKE SURE YOU REFRESH or OPEN NEW TERMINAL BEFORE CONTINUING THE SCRIPT**
 
-## resolve as unrecoginized error --64 
+
+## resolve : 
+```as unrecoginized error --64 ```
 
 ![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/b838a58c-d2a1-40e7-9e9b-38d57b2a17e6)
 
-This issue comes when too many gcc compiler are in your path , there are multiple ways to resolve this . The jugaad that I did was to remove  these 
+This issue comes when too many gcc compiler are in your path , there are multiple ways to resolve this . The jugaad that I did was to remove  these paths : 
 ```
 PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH
 PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin:$PATH
