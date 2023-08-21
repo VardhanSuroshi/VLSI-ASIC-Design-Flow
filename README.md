@@ -60,7 +60,11 @@ chmod +x install_tools.sh
 ```
 Errors regarding tools installation are resolved in [Resolve Errors Guide](resolve_errors.md)
 
+<details>
+<summary> Week 1 : Building a CPU : </summary>
+<br>
 
+ 
 <details>
 <summary> DAY 1: Introduction to RISC-V ISA and GNU Compiler Toolchain </summary>
 <br>
@@ -409,6 +413,9 @@ Stored Value:    12    34    56    78
 
 </details>
 
+
+
+</details>
 
 
 
