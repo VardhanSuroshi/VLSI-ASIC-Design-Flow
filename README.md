@@ -355,13 +355,6 @@ In the context of computer architecture and programming, **ABI** stands for **Ap
 
 
 
-
-
-
-
-
-
-
 ## Memory Allocations : 
 Data can be stored in register by two methods :
 + Directly store in registers
@@ -406,8 +399,82 @@ Memory Address:   0     1     2     3
 Stored Value:    12    34    56    78
 ```
 
+## Lab for ABI function call
+This is can interesting lab where we write a code along with assembly code . THe C code calls function to find sum written in the ASM .
+we then display the results using c code again .
+
+The algorithm will look like this :
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/36d03a93-1b54-4120-9a26-3cfad88b71b5" alt="Image" width="600">
+</p>
+
+c code snipet : ``` custom_call.c```
+
+```
+#include <stdio.h>
+
+extern int load(int x, int y); // Declare the external "load" function
+
+int main() {
+  int result = 0;              // Initialize the result variable
+  int count = 9;               // Initialize the count variable
+  result = load(0x0, count+1); // Call the "load" function with arguments
+  printf("Sum of numbers from 1 to 9 is %d\n", result); // Print the result
+  return 0;                    // Return 0 to indicate successful execution
+}
 
 
+```
+ASM code snipet : ``` load.s```
+```
+.section .text        # Text section where the code resides
+.global load          # Declare the function "load" as global
+.type load, @function # Define the type of "load" as a function
+
+load:                 # Start of the "load" function
+
+# Initialize a4 with the value of a0 (copy value from a0 to a4)
+add a4, a0, zero
+
+# Copy the value of a1 to a2
+add a2, a0, a1
+
+# Initialize a3 with the value of a0 (copy value from a0 to a3)
+add a3, a0, zero
+
+loop:                 # Label for the loop
+
+# Add the value in a3 to a4 (accumulate)
+add a4, a3, a4
+
+# Increment the value in a3 by 1
+addi a3, a3, 1
+
+# Compare a3 with a2 (comparison for loop termination)
+blt a3, a2, loop       # Branch to "loop" if a3 < a2
+
+# Copy the accumulated value in a4 to a0 (result)
+add a0, a4, zero
+
+ret                    # Return from the function
+
+
+```
+
+
+### Simulate C Program using Function Call :
++ **Compilation:** To compile C code and Asseembly file use the command
+  ``` riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o custom_call.o custom_call.c load.s ```
+  this would generate object file custom_call.o.
+
++ **Execution:** To execute the object file run the command
+```spike pk custom_call.o```
+
+Execution output :
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/df7d18bf-593c-4032-b5ee-85c75321f943" alt="Image" width="800">
+</p>
 
 
 
