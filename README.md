@@ -25,6 +25,8 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
   - [Day 3: Digital Logic with TL-Verilog and Makerchip](#day-3-digital-logic-with-tl-verilog-and-makerchip)
 
 + Week 2:
+  - [Day 1: Introduction to RTL synthesis](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
+  - [Day 2: Introduction to Liberty File ](#day-2-introduction-to-abi-and-basic-verification-flow)
 
 + Week 3:
 
@@ -541,7 +543,7 @@ to make the process easy we make use of shell script : ``` rv32im.sh```
 <br>
 
 <details>
-<summary> Day 2 : Introduction to synthesis </summary>
+<summary> Day 1 : Introduction to synthesis </summary>
 <br>
 
 
@@ -840,7 +842,9 @@ These steps transform the `good_mux` design into logic gates from the `sky130_fd
 
 
 
-
+<details>
+<summary> Day 2 :Timing libs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+<br>
 
 # Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
@@ -848,6 +852,7 @@ These steps transform the `good_mux` design into logic gates from the `sky130_fd
 
 
 
+</details>
 
 
 </details>
