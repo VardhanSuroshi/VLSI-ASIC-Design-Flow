@@ -10,7 +10,7 @@
 
 # About the repository 
 
-Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs using open-source tools! Here, we embark on a journey that starts with processor specifications and leverages the power of the RISC-V ISA. We'll build processors from scratch, taking them through the entire RTL to GDS process  that meets various Performance, Power, Area ( PPA ) and manufacturability requirements. The best part? We're doing it all with open-source tools, including the RISC-V toolchain and OpenLane anad many more .
+Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs using open-source tools! Here, we embark on a journey that starts with processor specifications and leverages the power of the RISC-V ISA. We'll build processors from scratch, taking them through the entire RTL to GDS process  that meets various Performance, Power, Area ( PPA ) and manufacturability requirements. The best part? We're doing it all with open-source tools, including the RISC-V toolchain OpenLane and many more.
 <p align="center">
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/00ea3403-674e-4c70-a86e-a4d39aff4ff8" alt="Image" width="600">
 </p>
@@ -19,14 +19,18 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 # Table of Contents
 + [Tools Installations](#tools-installation)
-+ Week 1:
++ Week 1: Build a RISC-V processor 
   - [Day 1: Introduction to RISC-V ISA and GNU Compiler Toolchain](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
   - [Day 2: Introduction to ABI and Basic Verification Flow](#day-2-introduction-to-abi-and-basic-verification-flow)
   - [Day 3: Digital Logic with TL-Verilog and Makerchip](#day-3-digital-logic-with-tl-verilog-and-makerchip)
 
-+ Week 2:
-  - [Day 1: Introduction to RTL synthesis](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
-  - [Day 2: Introduction to Liberty File ](#day-2-introduction-to-abi-and-basic-verification-flow)
+
++ Week 2: RTL Design using Verilog with SKY130 Technology
+
+  - [Day 1: Introduction to RTL Synthesis](#day-1-introduction-to-rtl-synthesis)
+  - [Day 2: Introduction to Liberty File](#day-2-introduction-to-liberty-file)
+  - [Day 3: Combinational and Sequential Optimizations](#day-3-combinational-and-sequential-optimizations)
+
 
 + Week 3:
 
@@ -59,9 +63,9 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 ## Tools Used:
 + **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.
 + **RISC-V ISA Simulator**: A RISC-V simulator used for functional verification and testing of RISC-V code without needing actual hardware.
-+ **RISC-V Proxy Kernel**: The RISC-V Proxy Kernel, a lightweight execution environment for running user-level applications on RISC-V processors.
++ **RISC-V Proxy Kernel**: The RISC-V Proxy Kernel, is a lightweight execution environment for running user-level applications on RISC-V processors.
 
-Build tool chain and pre-requisite  :  
+Build toolchain and pre-requisite  :  
 
 ```
 sudo apt update
@@ -71,7 +75,7 @@ chmod +x install_tools.sh
 Errors regarding tools installation are resolved in [Resolve Errors Guide](resolve_errors.md)
 
 <details>
-<summary> Week 1 : Building a CPU : </summary>
+<summary> Week 1: Build a RISC-V processor </summary>
 <br>
 
  
@@ -103,7 +107,7 @@ Errors regarding tools installation are resolved in [Resolve Errors Guide](resol
 
 - **Assembler**: Converts assembly language code into machine code ( 10101011100 ) for direct processor execution. 
 
-- **RTL (Register Transfer Level)**: Represents digital circuit behavior using registers and data transfer operations.
+- **RTL (Register Transfer Level)**: Represents digital circuit behaviour using registers and data transfer operations.
 
 - **Hardware**: Physical components of a computer system or electronic device enabling various tasks.
 
@@ -134,13 +138,13 @@ RISC-V is an **open-source Instruction Set Architecture (ISA)** that has gained 
 
 - **J-Type**: Jump-type instructions, unconditional jumps within the program. Example: `jal`, `jalr`.
   
- In addition to base instruction there are more instruction which help in improving exceution speed like Pseudo Instructions (`li` and `mv`) , Multiply Extension Instructions (`mul`, `mulh`, `mulhu`, and `mulhsu`) , Single and Double Precision Floating Point Extension and so on 
+ In addition to base instructions there are more instructions that help in improving execution speed like Pseudo Instructions (`li` and `mv`), Multiply Extension Instructions (`mul`, `mulh`, `mulhu`, and `mulhsu`), Single and Double Precision Floating Point Extension and so on 
 
-## Labwork for RISC-V software tool chain : 
+## Labwork for RISC-V software toolchain : 
 The main objective of this lab is to compile simple C codes using `gcc compiler`  and run them on native hardware. Similarly, the goal is to compile the same code using `riscv64-unknown-elf-gcc`, execute it on a RISC-V core within a simulator, and understand the process involved. The ultimate goal is to ensure that any high-level program written can be successfully executed on our hardware platform.
 
 
-A simple c code to find sum from 1 to N : 
+A simple c code to find the sum from 1 to N : 
 ```
 #include <stdio.h>
 int main() {
@@ -164,7 +168,7 @@ output :
 </p>
 
 
-compile the same using riscv compiler and view the output
+compile the same using RISC-V compiler and view the output
 
 
 ```
@@ -185,7 +189,7 @@ Additional info :
 
 
 
-TO see the RISC-V disassembled code : 
+To see the RISC-V disassembled code : 
 ```
 riscv64-unknown-elf-objdump -d sum_obj.o
 
@@ -199,15 +203,15 @@ To navigate through `less` use :
 + Press ENTER to begin the search.
 + To find the next occurrence, press n.
 + To search for the previous occurrence, press N.
-+ To exit the less viewer, press esc, type :q, and then press ENTER.
++ To exit the less viewer, press ESC, type:q, and then press ENTER.
 
 -O1 optimised main 
 <p align="center">
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/ae9a9dbb-cbd1-48b8-a90c-c93c26b7c954" alt="Image" width="800">
 </p>
-here we see that we have 15 line of code in main
+Here we see that we have 15 lines of code in the main
 
-Now let us compile the code use `-Ofast` and see the line of exceution  
+Now let us compile the code using `-Ofast` and see the line of execution  
 ```
 riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum_obj.o sum_1_n.c
 ```
@@ -216,11 +220,11 @@ riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum_obj.o sum_1_n.c
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/48573ebe-53df-4967-a806-bf78dcbd859d" alt="Image" width="800">
 </p>
 
-here we can see that the code is executed in only 12 lines , which is due to the optimisation we applied 
+here we can see that the code is executed in only 12 lines, which is due to the optimisation we applied 
 
 
 
-### Running the Assembly code on simulator in debug mode :
+### Running the Assembly code on the simulator in debug mode :
 ```
 spike -d pk sum_obj.o
 ```
@@ -248,7 +252,7 @@ Signed numbers are numerical values that can represent both positive and negativ
 
 ## LAB for signed and unsigned integer type 
 
-let us run this C code to determine the range of integer type supported by RISC-V 
+let us run this C code to determine the range of integer types supported by RISC-V 
 ```
 
 #include <stdio.h>
@@ -281,22 +285,22 @@ Output of code snippet :
   <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/9267a3fc-1134-479e-9274-c9b032dd48bf" alt="Image" width="800">
 </p>
 
-we can play around with different values , datatype to find their respect max and min values 
+we can play around with different values, data to find their respect max and min values 
 
 
 </details>
 
 
 <details>
-<summary> Day 2 : Introduction to ABI and Basic Verification Flow </summary>
+<summary> Day 2: Introduction to ABI and Basic Verification Flow </summary>
 <br>
 	
 
 
-# Day 2 : Introduction to ABI and Basic Verification Flow
-In Day 2 of your course, you will understanding the RISC-V instruction set architecture (ISA) by exploring the various fields of RISC-V instructions and their functions. This knowledge is crucial for gaining a comprehensive understanding of how RISC-V processors execute instructions and how programs are executed at the hardware level.
+# Day 2: Introduction to ABI and Basic Verification Flow
+In Day 2 of your course, you will understand the RISC-V instruction set architecture (ISA) by exploring the various fields of RISC-V instructions and their functions. This knowledge is crucial for gaining a comprehensive understanding of how RISC-V processors execute instructions and how programs are executed at the hardware level.
 
-## Overview of few instructions :
+## Overview of a few instructions :
 ### R-Type (Register-Type):
 Operate on registers with fixed operand format.
 Examples: ADD, SUB, AND, OR, XOR, SLL, SRL, SRA, SLT, SLTU
@@ -330,7 +334,7 @@ Example: JAL
 
 - **Opcode [7]:** Indicates the operation type (arithmetic, logic, memory access, control flow) for the instruction, guiding the CPU's execution.
 - **rd (Destination Register) [5]:** Represents the destination register, where the operation result will be stored after execution.
-- **rs1 (Source Register 1) [5]:** Represents the first source register, holding the value used in the operation (typically first operand).
+- **rs1 (Source Register 1) [5]:** Represents the first source register, holding the value used in the operation (typically the first operand).
 - **rs2 (Source Register 2) [5]:** Represents the second source register, holding the value used in the operation (typically second operand).
 - **func7 and func3 (Function Fields) [7] [3]:** Further specify opcode category and specific operation, enabling more instruction variations.
 - **imm (Immediate Value):** Represents an embedded immediate constant within the instruction, used for offsets, constants, or data values.
@@ -366,7 +370,7 @@ In the context of computer architecture and programming, **ABI** stands for **Ap
 
 
 ## Memory Allocations : 
-Data can be stored in register by two methods :
+Data can be stored in the register by two methods :
 + Directly store in registers
 + Store into registers from memory
   
@@ -410,8 +414,8 @@ Stored Value:    12    34    56    78
 ```
 
 ## Lab for ABI function call
-This is can interesting lab where we write a code along with assembly code . THe C code calls function to find sum written in the ASM .
-we then display the results using c code again .
+This is an interesting lab where we write code along with assembly code. The C code calls the function to find the sum written in the ASM.
+we then display the results using c code again.
 
 The algorithm will look like this :
 
@@ -474,9 +478,9 @@ ret                    # Return from the function
 
 
 ### Simulate C Program using Function Call :
-+ **Compilation:** To compile C code and Asseembly file use the command
++ **Compilation:** To compile C code and Assembly file use the command
   ``` riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o custom_call.o custom_call.c load.s ```
-  this would generate object file custom_call.o.
+  This would generate an object file custom_call.o.
 
 + **Execution:** To execute the object file run the command
 ```spike pk custom_call.o```
@@ -489,18 +493,18 @@ Execution output :
 ## Lab : Run C code on a RISC-V CPU
 Let us run our simple C code in a RISC-V CPU - PICORV-32 wirtten in verilog .
 Steps :
-+ We convert our C program to a hex file and load in the memory of CPU
-+ Make use of testbech to run the code
++ We convert our C program to a hex file and load it into the memory of the CPU
++ Make use of testbench to run the code
 + Display the results
 
-  The picorv design and the shell scripts are already built in a github repo
+  The PicoRV32a design and the shell scripts are already built in a GitHub repo
   ```
   cd
   git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
   
   ```
   Once installed navigate through the ``` riscv_workshop_collaterals/labs```
-  run the following command : 
+  Run the following command : 
   ```
   chmod 777 rv32im.sh
   ./rv32im.sh
@@ -515,7 +519,7 @@ snap of testbench showing firmware.hex :
 <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/952689f9-d156-4805-adc9-a050195cae15" alt="Image" width="800">
   </p>
 
-to make the process easy we make use of shell script : ``` rv32im.sh```
+to make the process easy we make use of shell script: ``` rv32im.sh```
 
 <p align="center">
 <img src="https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/db8be006-e39c-4008-9f0e-733f77f0f3c7" alt="Image" width="800">
@@ -539,11 +543,11 @@ to make the process easy we make use of shell script : ``` rv32im.sh```
 
 
 <details>
-<summary> Week 2 : RTL Design and Syntheisi </summary>
+<summary> Week 2: RTL Design and Synthesis </summary>
 <br>
 
 <details>
-<summary> Day 1 : Introduction to synthesis </summary>
+<summary> Day 1: Introduction to synthesis </summary>
 <br>
 
 
@@ -601,7 +605,7 @@ For this lab, we will rely on the following tools:
 ```SKYWATER 130nm PDK: ``` This open-source Process Design Kit (PDK), generously provided by Google, serves as the foundation for our design and synthesis wor
 
 - Begin by making a new directory using the command: ``` mkdir Week_2/Day_1```
-- Move into the newly created directory with: ``` cd Week_2/Day_1```
+- Move into the newly created directory with ``` cd Week_2/Day_1```
 - Clone a specific repository into this location using: ```git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git```
 - This action will establish a directory named `sky130RTLDesignAndSynthesisWorkshop` within the `Week_2/Day_1` directory.
 - Inside the `sky130RTLDesignAndSynthesisWorkshop` directory, there will be two distinct folders:
@@ -805,7 +809,7 @@ This process ensures that the synthesized netlist behaves correctly, matching th
 ---
 
 
-let's try to answer why do we have so many cells in the standard cell library 
+let's try to answer why we have so many cells in the standard cell library 
 
 #### Variety of Cell Types in Standard Cell Library
 
@@ -896,11 +900,13 @@ To synthesize the `good_mux` design using the `sky130_fd_sc_hd__tt_025C_1v80.lib
 
 These steps transform the `good_mux` design into logic gates from the `sky130_fd_sc_hd__tt_025C_1v80.lib` library, using Yosys for logic synthesis.
 
+</details>
 
 
 <details>
-<summary> Day 2 : Timing libs, hierarchical vs. flat synthesis and efficient flop coding styles </summary>
+<summary> Day 2: Timing libs, hierarchical vs. flat synthesis and efficient flop coding styles </summary>
 <br>
+
 
 # Day 2 - Timing libs, hierarchical vs. flat synthesis and efficient flop coding styles
 
@@ -1046,7 +1052,7 @@ Submodule-level synthesis offers several advantages:
 
 ## Various Flop Coding Styles and Optimization:
 
-**what is the need of Flip-Flops in designs?**
+**What is the need for Flip-Flops in designs?**
 Flops are essential in digital circuits to mitigate the cumulative effects of glitches that can occur due to propagation delays in combinational logic. When multiple combinational blocks are interconnected, these glitches can accumulate and lead to erroneous states. Flops act as a buffer, storing the final stable value and eliminating any glitches before passing it to the next block.
 
 
@@ -1063,7 +1069,7 @@ Flops are essential in digital circuits to mitigate the cumulative effects of gl
 
 3. **Synchronous and Asynchronous Reset Flip-Flop** Files: `sync_async_res.v` (Design) and `sync_async_res_tb.v` (Testbench)
 
-all these files are present under week_2/day_2 section.
+all these files are present under the week_2/day_2 section.
 
 ---
 
@@ -1153,13 +1159,412 @@ These steps will guide us through the process of synthesizing flops, simulating 
 
 
 
+### What is Optimization? Why do we need it ?:
 
+In this section, we'll delve into the concept of optimization, exploring its role in enhancing overall design performance and achieving better Power, Performance, and Area (PPA) metrics. Our primary focus will be on identifying optimization opportunities through simple examples. On Day 3, we will delve deeper into optimization principles and engage in hands-on labs.
+
+ **1.mult_2.v**
+ This is a simple design that multiples 2 to Input A and assigns it to the output Y. 
+ 
+``` 
+module mul2 (input [2:0] a, output [3:0] y);
+	assign y = a * 2;
+endmodule
+
+```
+**Synthesis steps**
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog mult_2.v
+synth -top mul2
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mul2_netlist.v
+!nvim mul2_netlist.v
+```
+Output of synthesis after optimization and its netlist :
+
+Multiplying a number by 2 involves a right shift operation, which means adding a "0" bit at the end of the number. This optimization simplifies the process by directly appending a "0" instead of using a dedicated multiplier circuit.
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/c1df6945-1bb8-4a4c-a696-8e36d2df4d7b" alt="Image" width="400">
+</p>
+
+
+
+
+
+
+ **2. mult_8.v**
+ This is a simple design that multiples 9 to input A and assigns it to Y.
+``` v
+module mult8 (input [2:0] a , output [5:0] y);
+	assign y = a * 9;
+endmodule
+```
+
+
+**Synthesis steps**
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog mult_2.v
+synth -top mult8
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult8_netlist.v
+!gvim mult8_netlist.v
+```
+
+Output of synthesis after optimization and its netlist :
+
+The `mul8` operation is essentially a multiplication by (8+1), which can be achieved by appending three zeroes at the end of 'a' and adding 'a' to itself. In this process, a dedicated multiplier is not inferred, and only three bits are added.
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/79133c30-8aed-4e77-b9b2-ac92fdebabf1" alt="Image" width="400">
+</p>
 
 
 </details>
 
 
+
+
+<details>
+<summary> Day 3: Combinational and Sequential Optimizations: </summary>
+<br>
+
+# DAY 3: Combinational and sequential optimizations
+
+## Logic Optimization Techniques
+Optimization is crucial for achieving optimal performance, resource utilization, and power efficiency in digital circuits.
+
+ **Why Optimization Matters**
+- **Performance**: Optimization enhances circuit performance, reducing latency and improving throughput.
+- **Area**: Efficient designs occupy less physical space, reducing chip size and costs.
+- **Power**: Optimized circuits consume less power, prolonging battery life and reducing heat generation.
+
+### Types of Logic Optimization:
+
+ **Combinational Logic Optimization**
+- **Constant Propagation**: Substituting variables with constant values for faster execution.
+- **Boolean Logic Optimization**: Simplifying logic expressions to reduce gate count and improve efficiency.
+
+**Sequential Logic Optimization**
+- **Sequential Constant Propagation**: Propagating constant values through sequential elements.
+- **State Optimization**: Minimizing the number of states in finite state machines.
+- **Retiming**: Reordering registers to meet timing constraints and enhance performance.
+- **Sequential Logic Cloning**: Duplicating logic elements to optimize specific conditions and operations.
+
+---
+
+### Combinational Logic Optimizations:
+
+In this section we synthesise a few combinational designs and see how optimization takes place 
+
+**Synthesis steps followed for all the design**
+```
+# Read the Liberty library file
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Read the Verilog design file
+read_verilog <design>.v
+
+# Specify the top module for synthesis
+synth -top <design_name>
+
+# Perform combinational logic optimization
+opt_clean -purge # Use this command to optimize the combinational logic before linking to ABC
+
+# Link to ABC for technology mapping
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Display the design in Yosys
+show
+```
+---
+Design 1: opt_check.v
+
+```
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule
+```
+
+Rather than inferring a MUX we get an AND gate as ouput always assigned value of B or its zero rest of the time. 
+
+
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/be140058-6ed5-4e7b-91a1-364bc78e7937" alt="Image" width="600">
+</p>
+
+---
+
+Design 2: opt_check2.v
+
+```
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+
+```
+Rather than a MUX we have a OR gate that is inferred . As the output is '1' ie A if A is 1. and B if A=0.
+
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/967d7133-55a5-4727-a9c8-9b87ce04ef80" alt="Image" width="600">
+</p>
+
+
+---
+
+Design 4: opt_check3.v
+```
+module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
+
+Rather than a 4:1 MUX we have a 3 Input AND gate that is inferred. Because the output depends on all the 3 inputs ( if ternary operator choose 1st operation in all the case )
+
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/72285bdb-653c-4608-9a0c-420ccb95c7f4" alt="Image" width="600">
+</p>
+
+
+
+---
+Design 4: multiple_module_opt.v
+
+
+```
+module sub_module1(input a , input b , output y);
+ assign y = a & b;
+endmodule
+
+module sub_module2(input a , input b , output y);
+ assign y = a^b;
+endmodule
+
+module multiple_module_opt(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module1 U1 (.a(a) , .b(1'b1) , .y(n1));
+sub_module2 U2 (.a(n1), .b(1'b0) , .y(n2));
+sub_module2 U3 (.a(b), .b(d) , .y(n3));
+
+assign y = c | (b & n1); 
+endmodule
+```
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/cfef4bfc-37d6-4b60-8dd9-c8b3b6487c64" alt="Image" width="600">
+</p>
+
+
+
+---
+
+
+
+
+
+### Sequential Logic Optimizations: 
+
+
+
+
+
+**Synthesize the Design**
+
+```
+# Read the Liberty library file
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Read the Verilog design file
+read_verilog <design>.v
+
+# Specify the top module for synthesis
+synth -top <design_name>
+
+# Map flip-flops to library cells
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Perform technology mapping
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Display the design in Yosys
+show
+```
+
+
+**Simulate the Design**
+```
+# Compile Verilog files
+iverilog <design>.v <tb_design>.v -o <design>.out
+
+# Run the simulation
+./<design>.out
+
+# View the waveform using GTKWAVE
+gtkwave <tb_design>.vcd
+
+```
+Make sure to replace <design>, <design_name>, and <tb_design> with the appropriate file names and module names as needed for your specific design and testbench.
+
+
+Design 1: dff_const1.v
+```
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+
+```
+
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/a432e0d1-78e4-454d-8cef-e88f2e5fbd1a" alt="Image" width="900">
+</p>
+
+
+
+---
+Design 2: dff_const2.v
+```
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/179f4ba3-7b02-4e34-92ea-3ac02b864abd" alt="Image" width="900">
+</p>
+
+
+---
+
+Design 3: dff_const3.v
+
+```
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+
+```
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/80239909-4512-4edd-89f3-3ccda0b9180d" alt="Image" width="900">
+</p>
+
+
+
+---
+
+### Sequential optimizations for unused outputs:
+
+Design 1: counter_opt.v
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+
+```
+
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/941ab670-0f29-4341-9420-5d92e73d1185" alt="Image" width="900">
+</p>
+
+---
+Design 2: counter_opt2.v
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = (count[2:0] == 3'b100);
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/93bb14bb-ac23-4a3e-84a6-72887eaf43c0" alt="Image" width="1000">
+</p>
+
+
+
+
+
+
+
+
+
+
+
 </details>
+
 </details>
 
 
