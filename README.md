@@ -547,34 +547,46 @@ to make the process easy we make use of shell script : ``` rv32im.sh```
 <br>
 
 
-# Day 1 - Introduction to Verilog RTL design and Synthesis
+# Day 1 - Introduction to Verilog RTL Design and Synthesis
+
+
+
 
 ## Introduction to open-source simulator iverilog
 ### Introduction to iverilog design test bench
 	
-+ Design:Design refers to the implementation of a digital circuit or system using Verilog code, or a set of Verilog codes, that is intended to fulfill specific functionality based on given specifications. It involves creating the logical structure of the circuit, including the arrangement of components, interconnections, and the overall behavior of the system.
++ Design: Design refers to the implementation of a digital circuit or system using Verilog code, or a set of Verilog codes, that is intended to fulfil specific functionality based on given specifications. It involves creating the logical structure of the circuit, including the arrangement of components, interconnections, and the overall behaviour of the system.
 
 + Testbench: A testbench is a specialized environment created to verify and validate the functionality of the design. It serves as a platform for applying various input stimuli to the design and observing the corresponding outputs. The testbench is responsible for generating test cases, monitoring the responses of the design, and comparing the obtained results against expected outcomes.
 
-+ Simulator: A simulator is a software tool used to execute simulations of the Verilog design described in the code. It emulates the behavior of the design under different scenarios by processing the input vectors provided by the testbench. The simulator models the propagation delays, logic gates, and other components defined in the Verilog code, allowing engineers to analyze how the design responds to different input conditions.
++ Simulator: A simulator is a software tool used to execute simulations of the Verilog design described in the code. It emulates the behaviour of the design under different scenarios by processing the input vectors provided by the testbench. The simulator models the propagation delays, logic gates, and other components defined in the Verilog code, allowing engineers to analyze how the design responds to different input conditions.
 
 
-### how do simulators works ?
-A simulator processes Verilog code, including both the design and the testbench. **It continually monitors input signals for changes**. When inputs change, the simulator evaluates the design's response based on the logic defined in the code. The output is updated accordingly. This process helps simulate the behavior of the digital circuit and verify its functionality.
+### How do simulators work?
+A simulator processes Verilog code, including both the design and the testbench. **It continually monitors input signals for changes**. When inputs change, the simulator evaluates the design's response based on the logic defined in the code. The output is updated accordingly. This process helps simulate the behaviour of the digital circuit and verify its functionality.
 
 
 ### Test bench interface :
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/43e2748a-a276-42f6-b0d0-94cf5510ee3d)
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/43e2748a-a276-42f6-b0d0-94cf5510ee3d" width="600">
+</p>
 
 ### Iverlog tool flow :
 - **Testbench and Design:** Create a testbench (stimulus environment) and a Verilog design to be tested.
 
-- **iVerilog:** Use the iVerilog simulator to process the testbench and design. It simulates the behavior of the design based on the provided testbench inputs.
+- **iVerilog:** Use the iVerilog simulator to process the testbench and design. It simulates the behaviour of the design based on the provided testbench inputs.
 
 - **VCD File:** The simulation generates a Value Change Dump (VCD) file. This file captures the changing values of signals over time during simulation.
 
-- **GtkWave:** Open the VCD file in GtkWave, a waveform viewer. GtkWave displays the signal waveforms over time, allowing you to visually analyze the behavior of the design and verify its correctness.
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/98a04106-af7f-4541-873b-e07619298904)
+- **GtkWave:** Open the VCD file in GtkWave, a waveform viewer. GtkWave displays the signal waveforms over time, allowing you to visually analyze the behaviour of the design and verify its correctness.
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/98a04106-af7f-4541-873b-e07619298904" width="600">
+</p>
 
 
 
@@ -588,8 +600,8 @@ For this lab, we will rely on the following tools:
 
 ```SKYWATER 130nm PDK: ``` This open-source Process Design Kit (PDK), generously provided by Google, serves as the foundation for our design and synthesis wor
 
-- Begin by making a new directory using the command: ```mkdir Week_2/Day_1```
-- Move into the newly created directory with: ```cd Week_2/Day_1```
+- Begin by making a new directory using the command: ``` mkdir Week_2/Day_1```
+- Move into the newly created directory with: ``` cd Week_2/Day_1```
 - Clone a specific repository into this location using: ```git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git```
 - This action will establish a directory named `sky130RTLDesignAndSynthesisWorkshop` within the `Week_2/Day_1` directory.
 - Inside the `sky130RTLDesignAndSynthesisWorkshop` directory, there will be two distinct folders:
@@ -597,8 +609,12 @@ For this lab, we will rely on the following tools:
    2. `verilog_files`: Within this folder, you'll find all the necessary source code and testbench components required for the lab exercises.
 
 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/0763678d-d468-487e-b5ee-d52069e576da" width="600">
+</p>
 
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/0763678d-d468-487e-b5ee-d52069e576da)
+
+
 
 To get started, navigate to the verilog_files directory -> ```cd Week_2/Day_1/sky130RTLDesignAndSynthesisWorkshop/verilog_flies```
 
@@ -615,9 +631,14 @@ To get started, navigate to the verilog_files directory -> ```cd Week_2/Day_1/sk
 
 GTKwave output : 
 
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/2d3bad61-8bf3-4168-9e53-57e70f47d53d)
 
-lets have a look how mux is designed ```good_mux.v``` : 
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/2d3bad61-8bf3-4168-9e53-57e70f47d53d" width="600">
+</p>
+
+
+let's have a look at how mux is designed ```good_mux.v``` : 
 ```
 // Define a module named good_mux
 module good_mux (input i0, input i1, input sel, output reg y);
@@ -631,7 +652,12 @@ module good_mux (input i0, input i1, input sel, output reg y);
 endmodule
 
 ```
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/c55b8a8b-a19a-4b20-8556-f1c8fb4c6f42)
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/c55b8a8b-a19a-4b20-8556-f1c8fb4c6f42" width="300">
+</p>
+
 
 
 Lets look at the testbech file ```tb_good_mux.v```: 
@@ -688,7 +714,7 @@ endmodule
 
 - **Timing Analysis:** Accounting for gate delays and optimizing paths to meet timing requirements.
 
-- **Verification and Iteration:** Repeating synthesis and verification stages until design meets all goals.
+- **Verification and Iteration:** Repeating synthesis and verification stages until the design meets all goals.
 
 - **Tool Dependence:** Utilizing EDA tools for logic synthesis with algorithms and heuristics.
 ---
@@ -699,31 +725,37 @@ The Standard Cell Library is essential in logic design and synthesis:
 
 - **Predefined Logic Gates:** Contains logic gates like AND, OR, NOT, XOR, each with specific functions.
 
-- **Characteristics:** Gates have defined behavior, delay, area, and power usage. Offers versions optimized for speed or power.
+- **Characteristics:** Gates have defined behaviour, delay, area, and power usage. Offers versions optimized for speed or power.
 
 - **Compatibility:** Tailored for specific technologies (CMOS, FPGA).
   
-- **Hierarchy:** Organized by complexity, from basic gates to flip-flops, adders.
+- **Hierarchy:** Organized by complexity, from basic gates to flip-flops, and adders.
 
 - **Formats:** Available in formats like Liberty (.lib) files.
 
 - **Customization:** Supports creating custom cells for specific needs.
 
-- **Design Impact:** Choice of cells affects speed, area, power.
+- **Design Impact:** Choice of cells affects speed, area, and power.
   
 Standard Cell Libraries bridge abstract designs to physical gate-level implementation, crucial for logic synthesis.
 
 
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/0ef2a5ce-7178-487e-8335-1a5bd34cc940)
 
 
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/0ef2a5ce-7178-487e-8335-1a5bd34cc940" width="600">
+</p>
 
-
-## Introdcution to Yosys :
+## Introduction to Yosys :
 
 Yosys is an open-source framework for RTL (Register-Transfer Level) synthesis and optimization of digital designs. It's a command-line tool that takes Verilog (or other HDL) code as input and performs various synthesis and optimization tasks to produce a more efficient gate-level representation of the design.
 
-Yosys can perform operations like technology mapping, constant propagation, optimization of logic structures, and much more. It's a versatile tool often used in digital design flows to generate gate-level netlists from high-level RTL descriptions
+Yosys can perform operations like technology mapping, constant propagation, optimization of logic structures, and much more. It's a versatile tool often used in digital design flows to generate gate-level netlists from high-level RTL descriptions.
+
+
+
+To explore Yosys in more detail and access the Yosys manual, visit the official Yosys documentation:
+[Yosys Manual](https://yosyshq.readthedocs.io/projects/yosys/en/latest/index.html#yosys-manual)
 
 ### Yosys Flow for Logic Synthesis :
 
@@ -752,40 +784,40 @@ Yosys streamlines the process from RTL description to optimized gate-level imple
 
 ---
 
-let us do a lab where we Verification of Synthesized Netlist of good_mux.v
+let us do a lab where we verify of Synthesized Netlist of good_mux.v
 
 ### The verification of a synthesized netlist involves these steps:
 
-1. **Synthesized RTL Netlist and Testbench:** :Provide the synthesized RTL netlist and its corresponding testbench.
+1. **Synthesized RTL Netlist and Testbench:** Provide the synthesized RTL Netlist and its corresponding testbench.
 
-2. **Simulation with Iverilog:** : Use Iverilog to simulate the netlist with the given testbench.
+2. **Simulation with Iverilog:**  Use Iverilog to simulate the netlist with the given testbench.
 
-3. **VCD File Generation:** : During simulation, a VCD (Value Change Dump) file is generated.
+3. **VCD File Generation:** During simulation, a VCD (Value Change Dump) file is generated.
    
-4. **Waveform Comparison:** : Compare the waveform generated by the simulation to the waveform obtained from pre-synthesis.
+4. **Waveform Comparison:**  Compare the waveform generated by the simulation to the waveform obtained from pre-synthesis.
 
-5. **GtkWave for Analysis:** :Use GtkWave to visually analyze the waveforms and compare them side by side.
+5. **GtkWave for Analysis:** Use GtkWave to visually analyze the waveforms and compare them side by side.
 
-6. **Check for Match:** :Check if the post-synthesis waveform matches the expected pre-synthesis waveform.
+6. **Check for Match:** Check if the post-synthesis waveform matches the expected pre-synthesis waveform.
 
 This process ensures that the synthesized netlist behaves correctly, matching the intended functionality.
 
 ---
 
 
-let try to answer why do we have so many cells in the standard cell library 
+let's try to answer why do we have so many cells in the standard cell library 
 
 #### Variety of Cell Types in Standard Cell Library
 
 In a Standard Cell Library, various types of cells, each optimized for specific design considerations, contribute to design flexibility:
 
-- **High Density Cells:** Optimized for compact layouts, allowing more cells in a given area. Typically have slower operating speeds and lower power consumption.
+- **High-Density Cells:** Optimized for compact layouts, allowing more cells in a given area. Typically have slower operating speeds and lower power consumption.
 
-- **High Speed Cells:** Designed to operate at faster speeds. May consume more power and have larger layouts due to increased complexity.
+- **High-Speed Cells:** Designed to operate at faster speeds. May consume more power and have larger layouts due to increased complexity.
 
 - **Power Efficient Cells:** Prioritize low power consumption over high-speed operation. May have longer propagation delays to reduce power usage.
 
-- **Mixed-Type Cells:** Combine characteristics of high speed and low power cells. Useful when designs require a balance between speed and energy efficiency.
+- **Mixed-Type Cells:** Combine characteristics of high-speed and low-power cells. Useful when designs require a balance between speed and energy efficiency.
 
 - **Temperature and Voltage Variants:** Libraries might offer cells optimized for specific temperature ranges or voltage levels.
 
@@ -801,52 +833,324 @@ These diverse cell types cater to different design goals, enabling designers to 
 
 
 
-## Lab : Hands on Yosys using SKYWATER130 
+## Lab: Hands-on Yosys using SKYWATER130 
 Steps to Realize good_mux Design using Yosys
 
 To synthesize the `good_mux` design using the `sky130_fd_sc_hd__tt_025C_1v80.lib` library:
 
 1. **Go to Directory:**  Navigate to the `verilog_files` directory.
-2. ![image](https://github.com/VardhanSuroshi/demo/assets/132068498/7311dd0b-d333-4dd3-b6f8-0a2e5eaf2343)
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/7311dd0b-d333-4dd3-b6f8-0a2e5eaf2343" width="600">
+</p>
+
+
 
 
 3. **Invoke Yosys:** Start Yosys using the command `yosys`.
 
 4. **Read Library:** Load the library using `read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`.
-5. ![image](https://github.com/VardhanSuroshi/demo/assets/132068498/2c7561ca-bf48-46fd-83c5-90968cde2c5c)
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/2c7561ca-bf48-46fd-83c5-90968cde2c5c" width="600">
+</p>
 
 
 6. **Read Design:** Read the `good_mux.v` design using `read_verilog good_mux.v`.
-7. ![image](https://github.com/VardhanSuroshi/demo/assets/132068498/1a64abd3-f290-48b0-964c-cf75097e979e)
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/1a64abd3-f290-48b0-964c-cf75097e979e" width="600">
+</p>
 
 
 8. **Synthesis:**  Perform synthesis on the `good_mux` design using `synth -top good_mux`.
-9. ![image](https://github.com/VardhanSuroshi/demo/assets/132068498/d5259f8c-a4f5-4afc-af1e-5047facac0e7)
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/d5259f8c-a4f5-4afc-af1e-5047facac0e7" width="600">
+</p>
 
 
 10. **Generate Netlist:**  Generate a netlist using ABC logic synthesis with `abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib`.
-11. ![image](https://github.com/VardhanSuroshi/demo/assets/132068498/04230a6b-5cdb-4233-9363-6aa86e03bafe)
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/04230a6b-5cdb-4233-9363-6aa86e03bafe" width="600">
+</p>
 
 
 
 13. **Show Realized Logic:** Visualize the realized logic using `show`. 
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/743f3492-afed-4c29-9766-3d066772cd79)
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/743f3492-afed-4c29-9766-3d066772cd79" width="600">
+</p>
 
 14. **Write Netlist:** Save the synthesized netlist using `write_verilog -noattr good_mux_netlist.v`.
 
 15. **Edit Netlist:** Open the netlist in a text editor with `!nvim good_mux_netlist.v`.
-![image](https://github.com/VardhanSuroshi/demo/assets/132068498/9b3bcd5c-ce71-4258-82c7-b1c53a179d2b)
 
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/9b3bcd5c-ce71-4258-82c7-b1c53a179d2b" width="600">
+</p>
 
 These steps transform the `good_mux` design into logic gates from the `sky130_fd_sc_hd__tt_025C_1v80.lib` library, using Yosys for logic synthesis.
 
 
 
 <details>
-<summary> Day 2 :Timing libs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+<summary> Day 2 : Timing libs, hierarchical vs. flat synthesis and efficient flop coding styles </summary>
 <br>
 
-# Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
+# Day 2 - Timing libs, hierarchical vs. flat synthesis and efficient flop coding styles
+
+# Introduction to Liberty file ( .lib file )
+A Liberty file, often denoted as ".lib" in VLSI (Very Large Scale Integration) design, is a critical technical resource. It encapsulates precise timing and power characteristics of standard cells within a semiconductor library. These characteristics include essential information such as cell delay, setup and hold times, power consumption, and more. The Liberty file is indispensable for accurate and efficient digital circuit design, enabling designers to analyze and optimize their circuits for performance, power efficiency, and timing accuracy.
+
+---
+
+Generalized naming format for VLSI 
+
+The naming convention for VLSI libraries typically follows the structure below:
+```<Foundry/Technology>_<LibraryCategory>_<LibraryName>_<LibraryVariant>_<Temperature>_<SupplyVoltage>.lib```
+
+
+- `<Foundry/Technology>`: Denotes the semiconductor foundry or technology process used for the library.
+
+- `<LibraryCategory>`: Signifies the category of the library, such as "fd" for fundamental or standard cell libraries.
+
+- `<LibraryName>`: Indicates the specific name of the library within the category, housing various standard cell designs.
+
+- `<LibraryVariant>`: Denotes the library variant or version, often reflecting specific characteristics or features.
+
+- `<Temperature>`: Represents the temperature at which the library is characterized, typically in degrees Celsius.
+
+- `<SupplyVoltage>`: Specifies the supply voltage at which the library is characterized, often in volts.
+
+Using this generalized format, you can create consistent and informative library names that convey essential details about the library's characteristics and conditions of use in VLSI design.
+
+
+---
+The naming convention "sky130_fd_sc_hd__tt_025C_1v80.lib" that we are making use of can be broken down as follows:
+
+
+- `sky130`: Denotes the technology or foundry.
+- `fd`: Signifies the library category. ( fd- foundation )
+- `sc`: Indicates the specific library name. ( sc-standard cell )
+- `hd`: Represents the library variant or version. ( high density )
+- `tt_025C`: Refers to the temperature (e.g., typical temperature 25°C).
+- `1v80`: Specifies the supply voltage (e.g., 1.80 volts).
+
+## Hierarchical Synthesis vs. Flat Synthesis
+
+### Hierarchical Synthesis
+
+Hierarchical synthesis is a design approach that involves breaking down a complex design into logical modules or blocks and synthesizing each module separately. Each module can have its own hierarchy and communicate with other modules through well-defined interfaces. This approach offers several advantages:
+
+### Advantages of Hierarchical Synthesis
+
+1. **Enhanced Reusability:** Individual modules can be designed and tested independently, making it easier to reuse them in other designs. This can save time and effort in future projects.
+
+2. **Improved Maintainability:** Hierarchical synthesis promotes a clean and organized design structure. Debugging and making changes to specific modules are more manageable because they are isolated from the rest of the design.
+
+3. **Scalability:** It is well-suited for large and complex designs as the hierarchy allows for a structured approach to managing complexity.
+
+
+
+
+### Steps for Hierarchical Synthesis
+
+Follow these steps for hierarchical synthesis using Yosys:
+
+1. Navigate to the `verilog_files` directory.
+2. Invoke Yosys using the command `yosys`.
+3. Once Yosys is running, enter the following sequence of commands:
+
+   ```
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   read_verilog multiple_modules.v
+   synth -top multiple_modules
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   show multiple_modules
+   write_verilog -noattr multiple_modules_hier.v
+   !nvim multiple_modules_hier.v
+   
+   ```
+RTL of Hierarchical Synthesis
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/c36d8aac-8a16-4ce2-a3bc-8a10949a5e09" width="600">
+</p>
+
+
+### Flat Synthesis
+
+Flat synthesis is an alternative design approach where the entire design is synthesized as a single, monolithic entity. In this approach, all modules, submodules, and logic are flattened into a single level of hierarchy. This method is best suited for simpler designs where complexity is low, and maintainability is not a significant concern.
+
+### Advantages of Flat Synthesis
+
+1. **Simplicity:** Flat synthesis is straightforward and may be appropriate for small, uncomplicated designs where hierarchy introduces unnecessary complexity.
+
+2. **Predictability:** There is no hierarchy to manage, which can make it easier to predict how the design will behave.
+
+### Steps for Flat Synthesis
+
+To perform flat synthesis using Yosys, follow these steps:
+
+1. Navigate to the `verilog_files` directory.
+
+2. Invoke Yosys using the command `yosys`.
+
+3. Once Yosys is running, enter the following sequence of commands:
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top multiple_modules
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten  # This step is crucial because it flattens the design, removing any hierarchy and combining all modules into a single level. This is the key step in achieving a flat synthesis.
+show
+write_verilog -noattr multiple_modules_flat.v
+!nvim multiple_modules_flat.v
+
+```
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/ef1de510-125f-416d-b68e-875be15ee089" width="600">
+</p>
+
+
+
+
+---
+
+### Notes on Hierarchical Synthesis vs. Flat Synthesis
+
+
+**Logic Gate Synthesis**
+
+1. **Utilization of NAND Gates:** During the synthesis process of logic gates like OR and AND gates, it's common for the synthesis tool to favour the use of NAND gates. This preference stems from the fact that OR gates, in particular, often employ stacked PMOS transistors. These stacked PMOS transistors have lower electron mobility, necessitating larger aspect ratios to effectively drive logic levels.
+
+ **Submodule-Level Synthesis**
+
+Submodule-level synthesis offers several advantages:
+
+1. **Reduced Synthesis Time:** Submodule-level synthesis can significantly reduce synthesis time, especially in the context of large and complex designs.
+
+2. **Reuse of Submodules:** When a specific submodule is called multiple times within a design, a time-saving strategy involves synthesizing it just once and then reusing it by integrating it into the main or top-level module.
+
+3. **Efficient Optimization:** Submodules are often optimized more efficiently during synthesis compared to optimizing the entire top-level design. This optimization leads to improved overall design performance.
+
+
+## Various Flop Coding Styles and Optimization:
+
+**what is the need of Flip-Flops in designs?**
+Flops are essential in digital circuits to mitigate the cumulative effects of glitches that can occur due to propagation delays in combinational logic. When multiple combinational blocks are interconnected, these glitches can accumulate and lead to erroneous states. Flops act as a buffer, storing the final stable value and eliminating any glitches before passing it to the next block.
+
+
+
+
+---
+### Synthesizing Flops
+
+**We'll synthesize and explore the behaviour of different flip-flops in the following sections:**
+
+1. **Asynchronous Reset Flip-Flop** Files: `asyncres.v` (Design) and `asyncres_tb.v` (Testbench)
+
+2. **Asynchronous Set Flip-Flop** Files: `asyncset.v` (Design) and `asyncset_tb.v` (Testbench)
+
+3. **Synchronous and Asynchronous Reset Flip-Flop** Files: `sync_async_res.v` (Design) and `sync_async_res_tb.v` (Testbench)
+
+all these files are present under week_2/day_2 section.
+
+---
+
+**Here are the steps to synthesize flops in a digital design using Yosys and view the waveform using GtkWave:**
+
+1. **Prepare the Design Files**: Ensure you have the necessary design files, including your Verilog design (`dff.v`) and a testbench file (`dff_tb.v`) for simulation.
+
+2. **Synthesize Flops**:
+   - Begin by invoking Yosys:
+     ```
+     yosys
+     ```
+   - Inside Yosys, follow these commands:
+     ```
+     # Read the Liberty library file
+     read_liberty -lib <PATH_TO_.lib_FILE>/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+     # Read the Verilog design file
+     read_verilog dff.v
+
+     # Specify the top module for synthesis
+     synth -top dff
+
+     # Map flip-flops to library cells
+     dfflibmap -liberty <PATH_TO_.lib_FILE>/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+     # Perform technology mapping
+     abc -liberty <PATH_TO_.lib_FILE>/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+     # Write the synthesized Verilog file
+     write_verilog -noattr dff_mapped.v
+
+     # Display the design in Yosys (optional)
+     show
+     ```
+   
+3. **Simulate the Design**:
+   - Use `iverilog` to compile your Verilog files and create an executable:
+     ```
+     iverilog dff.v dff_tb.v -o dff.out
+     ```
+   - Run the simulation:
+     ```
+     ./dff.out
+     ```
+
+4. **View the Waveform**:
+   - Use GtkWave to view the simulation waveform:
+     ```
+     gtkwave dff_tb.vcd
+     ```
+
+These steps will guide us through the process of synthesizing flops, simulating the design, and visualizing the waveform for verification.
+
+### Asynchronous Reset Flip-Flop :
+
+- Activating the asynchronous reset ('1') forces the stored value to '0'.
+- On the positive clock edge, the stored value updates with the data input.
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/212614e5-e172-4fff-ab88-8fc7dfd3717e" width="900">
+</p>
+
+
+### Asynchronous Set Flip-Flop:
+
+- Activating the asynchronous set input ('1') forces the stored value to '1'.
+- On the positive clock edge, the stored value updates with the data input.
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/212614e5-e172-4fff-ab88-8fc7dfd3717e" width="900">
+</p>
+
+
+### Synchronous and Asynchronous Reset Flip-Flop:
+
+- Combines both asynchronous and synchronous reset features.
+- Asynchronous reset ('1') immediately sets the stored value to '0'.
+- Synchronous reset ('1') at the positive clock edge also sets the stored value to '0'.
+- On the positive clock edge, the stored value updates with the data input.
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/6a67bc95-5ef9-409b-9e69-f46f5377181e" alt="Image" width="900">
+</p>
+
 
 
 
