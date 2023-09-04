@@ -61,9 +61,19 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 ## Tools Installations
 ## Tools Used:
+**Week 1:**
 + **RISC-V GNU Toolchain**: A comprehensive set of tools for compiling and building software to run on RISC-V processors.
 + **RISC-V ISA Simulator**: A RISC-V simulator used for functional verification and testing of RISC-V code without needing actual hardware.
 + **RISC-V Proxy Kernel**: The RISC-V Proxy Kernel, is a lightweight execution environment for running user-level applications on RISC-V processors.
++ **Iverilog**: Iverilog is an open-source Verilog simulation and synthesis tool used for designing and verifying digital circuits written in Verilog.
+
+**Week 2:**
++ **Yosys**: Yosys is an open-source RTL synthesis tool used to convert digital designs written in HDLs like Verilog into netlists for FPGA or ASIC implementation.
+
++ **Iverilog**: Iverilog is an open-source Verilog simulation and synthesis tool used for designing and verifying digital circuits written in Verilog.
+
+
+
 
 Build toolchain and pre-requisite  :  
 
@@ -71,6 +81,8 @@ Build toolchain and pre-requisite  :
 sudo apt update
 chmod +x install_tools.sh
 ./install_tools.sh
+chmod +x install_yosys.sh
+./install_yosys.sh
 ```
 Errors regarding tools installation are resolved in [Resolve Errors Guide](resolve_errors.md)
 
