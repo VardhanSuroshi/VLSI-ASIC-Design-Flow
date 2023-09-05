@@ -1566,7 +1566,172 @@ endmodule
 </p>
 
 
+</details>
 
+
+<details>
+<summary> Day 4: Gate Level simulation </summary>
+<br>
+
+# Day 4: Gate Level simulation [ GLS ] 
+
+
+## Gate-Level Simulation
+
+Gate-level simulation is a crucial method in electronics design for verifying digital circuits at the level of individual logic gates and flip-flops. It offers several key benefits:
+
+- **Functionality Check**: It allows for comprehensive functionality testing.
+- **Timing Verification**: Ensures that timing requirements are met.
+- **Power Consumption Analysis**: Assesses power consumption.
+- **Test Pattern Generation**: Generates test patterns for integrated circuits.
+
+This simulation operates at a lower abstraction level than higher-level simulations, making it essential for debugging and ensuring circuit correctness.
+ 
+**Usage**
+
+Gate-level simulation is typically used for post-synthesis verification to ensure that the design meets functionality and timing requirements. The required inputs include:
+
+- **Testbench**: A testbench for the design.
+- **Synthesized Netlist**: The netlist of the synthesized design.
+- **Gate-Level Verilog Models**: Verilog models of the individual gates used in the design.
+
+In cases where there's a discrepancy in simulation results for the post-synthesis netlist, it's referred to as a "synthesis simulation mismatch."
+
+
+
+### Gate-Level Simulation Steps
+These steps outline the process of gate-level simulation, a critical phase in the verification and validation of digital circuit designs.
+
+1. **Write RTL Code**: Begin by creating RTL (Register-Transfer Level) code to describe the digital circuit. Verify its functionality using a testbench.
+   ```
+   iverilog <design>.v <tb_desgin>.v
+   ./a.out
+   gtkwave <tb_design>.vcd
+   
+   ```
+
+3. **Synthesize RTL**: Perform RTL synthesis to convert the high-level RTL code into a gate-level netlist.
+   ```
+   read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   read_verilog <design>.v
+   synth -top blocking_caveat
+   abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+   write_verilog -noattr <design_netlist>.v
+   show
+   ```
+
+5. **Compile and Simulate**: Compile the gate-level netlist and simulate it using the same testbench that was used for RTL verification.
+   ```
+   iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v <design_netlist>.v <desing_tb>.v
+   ./a.out
+   gtkwave <desing_tb>.vcd
+   ```
+
+7. **Timing Analysis (If Necessary)**: If required, conduct timing analysis to ensure that the design meets timing constraints. Additionally, verify that the functionality matches expectations.
+
+### GLS Errors
+
+**Synthesis-Simulation Mismatch**
+- **Definition**: Differences between a digital circuit's behaviour in RTL-level simulation and its behaviour post gate-level synthesis.
+- **Causes**: Optimization, clock domain issues, library discrepancies, etc.
+- **Resolution**: Ensure consistent tool versions, verify synthesis settings, debug with simulation tools, and follow best RTL coding practices.
+- **Importance**: Crucial for reliable hardware implementation.
+
+
+---
+**Blocking vs. Non-Blocking Statements**
+**Blocking Statements**
+- **Execution**: Sequentially, in the order they appear.
+- **Usage**: Describe combinational logic, with execution order significance.
+- **Example**:
+ ```
+  a = b + c; // Waits for 'b' and 'c' before calculating 'a'
+ ```
+
+**Non-Blocking Statements**
+- **Execution**: Concurrently, within procedural blocks.
+- **Usage**: Model synchronous digital circuits, with parallel execution.
+- **Example**:
+```
+always @(posedge clk)
+begin
+b <= a; // Concurrently scheduled assignment
+c <= b; // Concurrently scheduled assignment
+end
+```
+
+---
+
+**Caveats with Blocking Statements**
+- **Sequential Execution**: Blocking statements execute sequentially, potentially misrepresenting concurrent hardware behaviour.
+- **Order Dependency**: The order of blocking statements can impact results, leading to race conditions.
+- **Combinational Logic**: Primarily used for combinational logic modelling.
+- **Testbench Usage**: Excessive use in testbenches can lead to simulation race conditions.
+- **Initialization Issues**: Order-dependent initialization with blocking assignments can yield unexpected results.
+- **Mitigation**: Use non-blocking statements for sequential logic modelling, employ good coding practices to minimize order dependencies, and enhance code clarity.
+
+
+
+
+
+
+
+
+
+### Labs on GLS 
+#### Synthesis-Simulation Mismatch
+Design 1: ternary_operator_mux.v
+``` 
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+	assign y = sel?i1:i0;
+endmodule
+```
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/99602a06-2390-445a-ba82-84a9dfe0fa47" alt="Image" width="900">
+</p>
+
+
+---
+Design 2:bad_mux.v
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/9882efa5-81ab-42b8-8205-20adeedd3fd2" alt="Image" width="900">
+</p>
+
+---
+#### Synth-Sim mismatch for blocking statement
+
+Design 3: blocking_caveat.v
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+```
+
+
+
+<p align="center">
+  <img src="https://github.com/VardhanSuroshi/demo/assets/132068498/543b8cb3-8d01-401b-b1b8-352dd3d1cfd6" alt="Image" width="900">
+</p>
 
 
 
