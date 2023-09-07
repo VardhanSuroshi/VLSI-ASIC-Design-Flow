@@ -19,18 +19,18 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 # Table of Contents
 + [Tools Installations](#tools-installation)
-+ Week 1: Build a RISC-V processor 
++ **Week 1: Build a RISC-V processor**
   - [Day 1: Introduction to RISC-V ISA and GNU Compiler Toolchain](#day-1-introduction-to-risc-v-isa-and-gnu-compiler-toolchain)
   - [Day 2: Introduction to ABI and Basic Verification Flow](#day-2-introduction-to-abi-and-basic-verification-flow)
   - [Day 3: Digital Logic with TL-Verilog and Makerchip](#day-3-digital-logic-with-tl-verilog-and-makerchip)
 
 
-+ Week 2: RTL Design using Verilog with SKY130 Technology
++ **Week 2: RTL Design using Verilog with SKY130 Technology**
 
   - [Day 1: Introduction to RTL Synthesis](#day-1-introduction-to-rtl-synthesis)
   - [Day 2: Introduction to Liberty File](#day-2-introduction-to-liberty-file)
   - [Day 3: Combinational and Sequential Optimizations](#day-3-combinational-and-sequential-optimizations)
-
+  - [Day 4: Gate level Simulation](#day-4-gate-level-simulation)
 
 + Week 3:
 
