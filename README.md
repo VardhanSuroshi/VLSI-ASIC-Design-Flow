@@ -543,15 +543,23 @@ to make the process easy we make use of shell script: ``` rv32im.sh```
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 </details>
 
 
 
-</details>
-
-
-
-</details>
 
 
 <details>
