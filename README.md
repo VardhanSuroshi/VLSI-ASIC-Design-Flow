@@ -545,11 +545,160 @@ to make the process easy we make use of shell script: ``` rv32im.sh```
 
 
 
+<details>
+<summary> DAY 3: Digital Logic with TL-Verilog and Makerchip </summary>
+<br>
+
+
+# Logic Gates and Boolean Operations
+
+Logic gates are fundamental components in digital circuits, playing a crucial role in manipulating binary information. In the binary system, 0 represents false or low voltage, while 1 represents true or high voltage.
+
+
+### Basic Logic Gates :
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/754ab35d-4d41-4452-ae33-5a322ad98678)
+
+
+### Full Adder:
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/91844c19-d1a4-47e6-9e02-c90d8cae2ed4)
+
+
+## Boolean Operations
+
+Boolean operations form the foundation of Boolean algebra, a mathematical structure dealing with variables that can have values of true (1) or false (0).
+
+
+
+### Basic Mux Implementation
+
+A 2:1 multiplexer, or 2-to-1 mux, is a digital circuit that selects one of two input data lines and directs it to a single output line based on a control signal. The control signal determines which of the two input lines is transmitted to the output.
+
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/22eeb084-22fa-44f1-9c49-05b04e8322b2)
+
+
+### Chaining Ternary Operator
+
+In Verilog, a hardware description language, the ternary operator can be used to implement multiplexers concisely. For example:
+
+```
+assign f = s ? x1 : x2;
+```
+
+This assigns the value of `x1` to `f` if `s` is true; otherwise, it assigns the value of `x2`.
+
+
+Chaining multiple ternary operators can be done to implement more complex multiplexers:
+
+```
+assign f = sel[0] ? a : (sel[1] ? b : (sel[2] ? c : d));
+```
+
+This Verilog code selects `a` if `sel[0]` is true, `b` if `sel[1]` is true, `c` if `sel[2]` is true, and `d` otherwise.
+
+
+----
+
+# Makerchip - Online Verilog IDE by Redwood EDA
+
+[Makerchip](http://makerchip.com/) is a powerful, free online environment provided by Redwood EDA for developing integrated circuits. It offers a seamless experience for coding, compiling, simulating, and debugging Verilog designs directly from your browser. This platform enables you to create digital sequential logic efficiently and quickly.
+
+## Instructions to Explore the Validity Tutorial
+
+1. **Go to Makerchip:** - Visit [http://makerchip.com/](http://makerchip.com/)
+
+2. **Access IDE:**  - Click on "IDE" to enter the Integrated Development Environment.
+
+3. **Open Tutorials:**  - Navigate to the "Tutorials" section.
+
+4. **Load Pythagorean Example:**  - Select the "Validity Tutorial" and load the "Pythagorean Example."
+
+5. **Split Planes and Move Tabs:**  - Familiarize yourself with the interface by splitting planes and moving tabs to customize your workspace.
+
+6. **Zoom/Pan in Diagram:**  - Use the mouse wheel to zoom and pan within the diagram to get a closer look at the circuit.
+
+7. **Zoom Waveform:**- Zoom in on the waveform by using the "Zoom In" button, allowing for a detailed examination.
+
+8. **Highlight in Diagram:** - Click on `$bb_sq` in the waveform to highlight the corresponding element in the diagram.
+
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/dc3363b7-23b4-4bbc-a11c-8c5f3083c0eb)
+
+
+# Makerchip - LABS
+
+
+## INV
+To create an inverter using Makerchip, follow the steps below:
+
+1. **Open Examples:** - Navigate to the "Examples" section under "Tutorials."
+
+2. **Load Makerchip Default Template:**- Load the "Makerchip Default Template" to begin with a basic template for Verilog code.
+
+3. **Create an Inverter:** - Add the following line at line 16, replacing `//..`:
+     ```
+     $out = ! $in1;
+     ```
+     Ensure that the indentation is preserved with three spaces (no tabs).
+
+4. **Compile:**- Click on the "E" menu to access the compilation options.
+
+5. **Compile the Code:** - Compile the Verilog code to see the result of the inverter implementation.
+
+
+
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/7f927e53-186c-4ca1-a367-c2c9283fa790)
 
 
 
 
 
+## AND GATE :
+
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/945630d1-6aee-4678-b0ea-99b8d8f96fe1)
+
+
+
+# Sequential logic :
+- Sequential logic is sequenced by a clock signal. 
+- A D-FF transitions the next state to the current state on a rising clock edge.
+- The circuit is constructed to enter a known state in response to a reset signal.
+
+
+
+----
+
+## Fibonacci Series with Reset
+
+The Fibonacci series is a sequence where the next value is the sum of the previous two numbers. For example: 1, 1, 2, 3, 5, 8, ...
+
+```
+$num[31:0] = $reset ? 1 : (>>1$num + >>2$num);
+```
+
+
+
+In the Verilog code above, `$num` represents the Fibonacci series. The value is set to 1 if there is a reset (`$reset`), and otherwise, it is calculated as the sum of the two previous numbers.
+
+---
+
+## Free Running Counter
+
+A free-running counter is a simple counter that increments continuously.
+
+![Free Running Counter](images/free_running_counter.png)
+*Fig 5: Free Running Counter*
+
+```
+$cnt[31:0] = $reset ? 0 : (1 + >>1$cnt);
+```
+
+In the Verilog code above, `$cnt` represents the free-running counter. If there is a reset (`$reset`), the counter is set to 0. Otherwise, it increments by 1 in each clock cycle.
+
+![image](https://github.com/VardhanSuroshi/pes_asic_class/assets/132068498/a484c04c-c287-4eec-b4ce-dbb0b920296f)
+
+
+
+
+</details>
 
 
 
