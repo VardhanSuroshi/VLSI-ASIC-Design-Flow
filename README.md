@@ -32,12 +32,11 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
   - [Day 3: Combinational and Sequential Optimizations](#day-3-combinational-and-sequential-optimizations)
   - [Day 4: Gate level Simulation](#day-4-gate-level-simulation)
 
-+ Week 3:
++ **Week 3 and 4: Advance Physical Design ASIC Flow using OpenLane**
+  -  [Advance Physical Design ASIC Flow using OpenLane](#Adance-physical-design-asic-flow-using-openlane)
 
-+ Week 4:
-
-+ Week 5:
-
++ **Week 5: Efabless Carvel Tapeout**
+   - [Efbaless Caravel Tapeout](efabless-caravel-tapeout)
 
 
 ## Requirements:
@@ -69,9 +68,13 @@ Welcome to my GitHub repository dedicated to VLSI Physical Design for ASICs usin
 
 **Week 2:**
 + **Yosys**: Yosys is an open-source RTL synthesis tool used to convert digital designs written in HDLs like Verilog into netlists for FPGA or ASIC implementation.
-
 + **Iverilog**: Iverilog is an open-source Verilog simulation and synthesis tool used for designing and verifying digital circuits written in Verilog.
 
+**Week 3 & 4:**
++ **OpenLane**: OpenLane is an open-source automated toolchain for designing ASICs from RTL to GDSII  layout. It streamlines the ASIC design process by integrating various open-source tools, allowing for efficient chip development and tape-out without human intervention.
+
+**Week 5**
++ Caravel Efabless Github Build: Caravel is a standard SoC harness with on-chip resources to control and read/write operations from a user-dedicated space
 
 
 
@@ -1901,10 +1904,20 @@ endmodule
 
 </details>
 
+<details>
+
+<summary> Week 3 & 4: Advance Physical Design ASIC Flow using OpenLane </summary>
+The following [link](https://github.com/VardhanSuroshi/VLSI-Physical-Design-Flow) hosts the content for Advance physical design flow
+
+</details>
+
+<details>
+
+<summary> Week 5:Efabless Caravel Tapeout </summary>
+The following [link](https://github.com/VardhanSuroshi/Vedic-Multiplier-Efabless-Tapeout) hosts the content for Files submitted for Efabless MPW Shuttle in 2023
 
 
-
-
+</details>
 
 
 
